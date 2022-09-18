@@ -4,4 +4,6 @@ const HttpCode = {
   BAD_REQUEST: 400,
 };
 
-export { HttpCode };
+module.exports = {
+  HttpCode,
+};

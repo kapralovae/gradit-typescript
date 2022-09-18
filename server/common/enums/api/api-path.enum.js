@@ -2,4 +2,6 @@ const ApiPath = {
   ORDERS: '/orders',
 };
 
-export { ApiPath };
+module.exports = {
+  ApiPath,
+};

@@ -2,4 +2,6 @@ const HttpMethod = {
   POST: 'POST',
 };
 
-export { HttpMethod };
+module.exports = {
+  HttpMethod,
+};

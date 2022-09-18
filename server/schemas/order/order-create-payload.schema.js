@@ -1,6 +1,5 @@
-import { OrderKey } from "../../common/enums/order/order-key.enum";
-import Joi from 'joi';
-import { OrderValidationRule } from "../../common/enums/order/order-validation-rule.enum";
+const Joi = require('joi');
+const { OrderKey, OrderValidationRule } = require('../../common/enums/enums');
 
 const orderCreatePayload = Joi.object({
   [OrderKey.NAME]: Joi.string().required(),
@@ -12,4 +11,6 @@ const orderCreatePayload = Joi.object({
   [OrderKey.IS_LEGAL]: Joi.bool().required(),
 });
 
-export { orderCreatePayload };
+module.exports = {
+  orderCreatePayload,
+};

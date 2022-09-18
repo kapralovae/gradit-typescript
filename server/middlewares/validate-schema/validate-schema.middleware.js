@@ -1,4 +1,4 @@
-import { HttpCode } from "../../common/enums/http/http-code.enum";
+const { HttpCode } = require('../../common/enums/enums');
 
 const validateSchema = (schema) => async (req, res, next) => {
   const { body } = req;
@@ -19,4 +19,6 @@ const validateSchema = (schema) => async (req, res, next) => {
   return next();
 };
 
-export { validateSchema };
+module.exports = {
+  validateSchema,
+};

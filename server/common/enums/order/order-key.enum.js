@@ -5,4 +5,6 @@ const OrderKey = {
   IS_LEGAL: 'isLegal',
 };
 
-export { OrderKey };
+module.exports = {
+  OrderKey,
+};

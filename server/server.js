@@ -1,6 +1,6 @@
-import jsonServer from 'json-server';
-import { initDatabase } from './database/database';
-import { initCustomRoutes } from './routes/routes';
+const jsonServer = require('json-server');
+const { initDatabase } = require('./database/database');
+const { initCustomRoutes } = require('./routes/routes');
 
 const PORT = 3001;
 

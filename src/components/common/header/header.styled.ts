@@ -76,9 +76,9 @@ const Link = styled(RouterLink)`
 
   color: ${({ theme }) => theme.color.whiteSmoke};
 
-  ${({ }) =>
-    
-    css`
+  ${({ isActiveLink }) =>
+
+  isActiveLink && css`
       color: ${({ theme }) => theme.color.tangerine};
     `}
 
