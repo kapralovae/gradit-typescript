@@ -8,11 +8,18 @@ import {ReactComponent as IconPerson} from '../../../../assets/img/icon-person.s
 import {ReactComponent as IconPuzzle} from '../../../../assets/img/icon-puzzle.svg';
 import * as S from './quests-catalog.styled';
 
-const QuestsCatalog = () => (
+const QuestsCatalog = () => {
+
+  const handleTabBtnClick = (evt: React.MouseEvent<HTMLLIElement>) => {
+    evt.preventDefault();
+    console.log(evt.currentTarget.getAttribute('value'));
+  };
+  
+  return(
   <>
     <S.Tabs>
       <S.TabItem>
-         <S.TabBtn isActive>
+         <S.TabBtn onClick={handleTabBtnClick} isActive>
           <IconAllQuests />
           <S.TabTitle>Все квесты</S.TabTitle>
         </S.TabBtn>
@@ -224,6 +231,6 @@ const QuestsCatalog = () => (
       </S.QuestItem>
     </S.QuestsList>
   </>
-);
+);};
 
 export default QuestsCatalog;
