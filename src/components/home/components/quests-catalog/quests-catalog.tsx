@@ -10,18 +10,18 @@ import * as S from './quests-catalog.styled';
 
 const QuestsCatalog = () => {
 
-  const handleTabBtnClick = (evt: React.MouseEvent<HTMLLIElement>) => {
+  const handleTabBtnClick = (evt: React.MouseEvent<HTMLSpanElement>) => {
     evt.preventDefault();
-    console.log(evt.currentTarget.getAttribute('value'));
+    console.log(evt.currentTarget.innerText);
   };
-  
+
   return(
   <>
     <S.Tabs>
       <S.TabItem>
-         <S.TabBtn onClick={handleTabBtnClick} isActive>
+         <S.TabBtn isActive>
           <IconAllQuests />
-          <S.TabTitle>Все квесты</S.TabTitle>
+          <S.TabTitle onClick={handleTabBtnClick}>Все квесты</S.TabTitle>
         </S.TabBtn>
       </S.TabItem>
 
