@@ -7,54 +7,58 @@ import {ReactComponent as IconScifi} from '../../../../assets/img/icon-scifi.svg
 import {ReactComponent as IconPerson} from '../../../../assets/img/icon-person.svg';
 import {ReactComponent as IconPuzzle} from '../../../../assets/img/icon-puzzle.svg';
 import * as S from './quests-catalog.styled';
+import { useState } from 'react';
+import React from 'react';
 
 const QuestsCatalog = () => {
 
-  const handleTabBtnClick = (evt: React.MouseEvent<HTMLSpanElement>) => {
+  const [thematic, setThematic] = useState('Все квесты');
+
+  const handleTabBtnClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
-    console.log(evt.currentTarget.innerText);
+    setThematic(evt.currentTarget.innerText);
   };
 
   return(
   <>
     <S.Tabs>
       <S.TabItem>
-         <S.TabBtn isActive>
+        <S.TabBtn onClick={handleTabBtnClick} isActive={thematic === 'Все квесты'}>
           <IconAllQuests />
-          <S.TabTitle onClick={handleTabBtnClick}>Все квесты</S.TabTitle>
+          <S.TabTitle >Все квесты</S.TabTitle>
         </S.TabBtn>
       </S.TabItem>
 
       <S.TabItem>
-        <S.TabBtn>
+        <S.TabBtn onClick={handleTabBtnClick} isActive={thematic === 'Приключения'}>
           <IconAdventures />
           <S.TabTitle>Приключения</S.TabTitle>
         </S.TabBtn>
       </S.TabItem>
 
       <S.TabItem>
-        <S.TabBtn>
+        <S.TabBtn onClick={handleTabBtnClick} isActive={thematic === 'Ужасы'}>
           <IconHorrors />
           <S.TabTitle>Ужасы</S.TabTitle>
         </S.TabBtn>
       </S.TabItem>
 
       <S.TabItem>
-        <S.TabBtn>
+        <S.TabBtn onClick={handleTabBtnClick} isActive={thematic === 'Мистика'}>
           <IconMystic />
           <S.TabTitle>Мистика</S.TabTitle>
         </S.TabBtn>
       </S.TabItem>
 
       <S.TabItem>
-        <S.TabBtn>
+        <S.TabBtn onClick={handleTabBtnClick} isActive={thematic === 'Детектив'}>
           <IconDetective />
           <S.TabTitle>Детектив</S.TabTitle>
         </S.TabBtn>
       </S.TabItem>
 
       <S.TabItem>
-        <S.TabBtn>
+        <S.TabBtn onClick={handleTabBtnClick} isActive={thematic === 'Sci-fi'}>
           <IconScifi />
           <S.TabTitle>Sci-fi</S.TabTitle>
         </S.TabBtn>
