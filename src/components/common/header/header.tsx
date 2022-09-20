@@ -10,7 +10,6 @@ const Header = () => {
     evt.preventDefault();
     console.log(evt.currentTarget.innerText);
     setActiveLink(evt.currentTarget.innerText);
-    console.log(activeLink);
   };
 
 
