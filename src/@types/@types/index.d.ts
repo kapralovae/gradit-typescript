@@ -5,7 +5,7 @@
 //     export {src};
 //   };
 
-declare module "\*.svg" {
+declare module "*.svg" {
   import React = require("react");
   export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
   const src: string;
@@ -16,7 +16,7 @@ declare module "\*.svg" {
     const content: string;
     export default content;
   }
-  
+
   declare module "*.png" {
     const content: string;
     export default content;
