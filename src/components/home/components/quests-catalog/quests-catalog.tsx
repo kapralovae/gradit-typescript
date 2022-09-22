@@ -4,15 +4,17 @@ import {ReactComponent as IconHorrors} from '../../../../assets/img/icon-horrors
 import {ReactComponent as IconMystic} from '../../../../assets/img/icon-mystic.svg';
 import {ReactComponent as IconDetective} from '../../../../assets/img/icon-detective.svg';
 import {ReactComponent as IconScifi} from '../../../../assets/img/icon-scifi.svg';
-import {ReactComponent as IconPerson} from '../../../../assets/img/icon-person.svg';
-import {ReactComponent as IconPuzzle} from '../../../../assets/img/icon-puzzle.svg';
 import * as S from './quests-catalog.styled';
 import { useState } from 'react';
 import React from 'react';
+import { useAppSelector } from '../../../../hooks';
+import { QuestCard } from './quest-card';
 
 const QuestsCatalog = () => {
 
   const [thematic, setThematic] = useState('Все квесты');
+  const quests = useAppSelector((state) => state.quests);
+  console.log(quests);
 
   const handleTabBtnClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
@@ -66,7 +68,8 @@ const QuestsCatalog = () => {
     </S.Tabs>
 
     <S.QuestsList>
-      <S.QuestItem>
+    {quests.map((quest) => <QuestCard item={quest} key={quest.id}></QuestCard>)}
+      {/* <S.QuestItem>
         <S.QuestItemLink to="/quest">
           <S.Quest>
             <S.QuestImage
@@ -232,7 +235,7 @@ const QuestsCatalog = () => {
             </S.QuestContent>
           </S.Quest>
         </S.QuestItemLink>
-      </S.QuestItem>
+      </S.QuestItem> */}
     </S.QuestsList>
   </>
 );};
