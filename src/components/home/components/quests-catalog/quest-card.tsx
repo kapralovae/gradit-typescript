@@ -34,11 +34,11 @@ const {coverImg, id, level, peopleCount, title} = item;
   const transformLevel = (level: string) => {
     switch(level) {
       case 'easy':
-        return 'Легкий';
+        return 'простой';
       case 'medium':
-        return 'Средний';
+        return 'средний';
       case 'hard':
-        return 'Сложный';
+        return 'сложный';
     }
 
   };

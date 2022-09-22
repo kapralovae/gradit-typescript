@@ -6,6 +6,7 @@ import { appTheme } from './common';
 import * as S from './app.styled';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import { useEffect } from 'react';
+import { getQuests } from '../../action';
 import { useAppDisptach } from '../../hooks';
 
 const App = () => {
@@ -15,8 +16,10 @@ const App = () => {
   useEffect(() => {
     fetch('http://localhost:3001/quests/')
   .then((response) => response.json())
-  .then((data) => dispatch(data));
-});
+  .then((data) => {
+    console.log(data);
+    dispatch(getQuests(data));});
+}, []);
 
   return(
   <ThemeProvider theme={appTheme}>

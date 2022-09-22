@@ -12,8 +12,6 @@ const Header = () => {
     setActiveLink(evt.currentTarget.innerText);
   };
 
-
-
   return(
   <S.StyledHeader>
     <S.HeaderWrapper>
