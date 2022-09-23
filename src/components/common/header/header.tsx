@@ -8,7 +8,6 @@ const Header = () => {
 
   const handleLinkClick = (evt: React.MouseEvent<HTMLLIElement>) => {
     evt.preventDefault();
-    console.log(evt.currentTarget.innerText);
     setActiveLink(evt.currentTarget.innerText);
   };
 
@@ -22,9 +21,7 @@ const Header = () => {
       <S.Navigation>
         <S.Links>
           <S.LinkItem onClick={handleLinkClick}>
-            <S.Link  isActiveLink={activeLink === 'Квесты'} to="/">
-              Квесты
-            </S.Link>
+            <S.Link isActiveLink={activeLink === 'Квесты'} to="/">Квесты</S.Link>
           </S.LinkItem>
 
           <S.LinkItem onClick={handleLinkClick}>

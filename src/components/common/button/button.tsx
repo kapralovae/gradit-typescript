@@ -6,8 +6,8 @@ type ButtonType = {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button = ({ children, onClick, ...props }: ButtonType) => (
-  <S.Button onClick={onClick} {...props}>{children}</S.Button>
-);
+function Button({ children, onClick, ...props }: ButtonType) {
+  return <S.Button onClick={onClick} {...props}>{children}</S.Button>
+};
 
 export default Button;

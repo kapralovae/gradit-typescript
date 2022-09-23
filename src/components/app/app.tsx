@@ -10,7 +10,7 @@ import {Route, BrowserRouter, Routes} from 'react-router-dom';
 // import { useAppDisptach } from '../../hooks';
 import NotFound from '../not-found/not-found';
 
-const App = () => {
+function App () {
 
   // const dispatch = useAppDisptach();
 

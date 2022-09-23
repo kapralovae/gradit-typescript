@@ -14,17 +14,15 @@ const DetailedQuest = () => {
   const quest = useAppSelector(getQuestsFromServer);
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
   const {id} = useParams();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   console.log(quest);
 
-  // if (quest.length > 0) {
-  //   const checkId = new RegExp(getRegularForCheckId(Number(id), quest.length)).test(String(id));
-  //   if (!checkId || Number(id) > quest.length) {
-  //     navigate('*');
-  //   }
-  // }
-
-  // console.log('123');
+  if (quest.length > 0) {
+    const checkId = new RegExp(getRegularForCheckId(Number(id), quest.length)).test(String(id));
+    if (!checkId || Number(id) > quest.length) {
+      navigate('*');
+    }
+  }
 
   const filteredQuest = quest.filter((quest) => quest.id === Number(id))[0];
   console.log(quest);

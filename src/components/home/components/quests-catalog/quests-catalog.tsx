@@ -5,13 +5,12 @@ import {ReactComponent as IconMystic} from '../../../../assets/img/icon-mystic.s
 import {ReactComponent as IconDetective} from '../../../../assets/img/icon-detective.svg';
 import {ReactComponent as IconScifi} from '../../../../assets/img/icon-scifi.svg';
 import * as S from './quests-catalog.styled';
-import React, { useEffect } from 'react';
-import { useAppDisptach, useAppSelector } from '../../../../hooks';
 import { QuestCard } from './quest-card';
 import { changeFilteredQuests, changeTypeQuests } from '../../../../store/quests-data/reducer-data';
 import { QuestsType } from '../../../../types/state';
 import { getQuestsFromServer } from '../../../../store/quests-process/selectors';
-import { getChoiseFilter, getFilteredQuests } from '../../../../store/quests-data/selectors';
+import { getChoiseFilter } from '../../../../store/quests-data/selectors';
+import { useAppDisptach, useAppSelector } from '../../../../hooks';
 
 const QuestsCatalog = () => {
 
