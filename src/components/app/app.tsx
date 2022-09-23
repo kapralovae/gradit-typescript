@@ -8,6 +8,7 @@ import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import { useEffect } from 'react';
 import { loadAllQuests } from '../../action';
 import { useAppDisptach } from '../../hooks';
+import NotFound from '../not-found/not-found';
 
 const App = () => {
 
@@ -37,6 +38,12 @@ const App = () => {
         <Route path="/"
           element={<Home />}>
          </Route>
+
+         <Route path='*' element={
+          <NotFound />
+        }
+        >
+        </Route>
       </Routes>
     </BrowserRouter>
   </ThemeProvider>

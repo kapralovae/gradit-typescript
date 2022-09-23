@@ -13,7 +13,7 @@ const DetailedQuest = () => {
   const {id} = useParams();
   const quest = useAppSelector((state) => state.quests).filter((quest) => quest.id === Number(id));
   console.log(quest);
-  const { coverImg, description, duration, level, peopleCount, previewImg, title, type} = quest[0];
+  const { coverImg, description, duration, peopleCount, previewImg, title, type} = quest[0];
   console.log(coverImg, previewImg);
 
   const transformTypeQuest = (typeQuest: string) => {
@@ -52,7 +52,7 @@ const DetailedQuest = () => {
     <MainLayout>
       <S.Main>
         <S.PageImage
-          src={coverImg}
+          src={`${coverImg}`}
           alt={`Квест ${title}`}
           width="1366"
           height="768"
