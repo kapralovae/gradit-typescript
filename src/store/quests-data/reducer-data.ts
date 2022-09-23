@@ -1,25 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { changeTypeQuests, changeFilteredQuests} from './action';
 import { QuestsType } from '../../types/state';
 
 export type TypeInitialState = {
-  quests: QuestsType[],
+  quests: QuestsType[];
   filter: string;
   filteredQuests: QuestsType[],
 };
 
 const initialState: TypeInitialState = {
-  quests: [{
-    id: 1,
-    title: 'string',
-    description: 'string',
-    previewImg: 'string',
-    coverImg: 'string',
-    type: 'string',
-    level: 'string',
-    peopleCount: [1],
-    duration: 1,
-  }],
+  quests: [],
   filter: 'All quests',
   filteredQuests: [],
 };
@@ -33,12 +22,6 @@ const initialState: TypeInitialState = {
 //     .addCase(changeTypeQuests, (state, action) => {
 //       state.filter = action.payload;
 //     })
-//     .addCase(changeFilteredQuests, (state) => {
-//       if (state.filter === 'All quests') {
-//         state.filteredQuests = state.quests;
-//       } else {
-//         state.filteredQuests = state.quests.filter((quest) => quest.type === state.filter);
-//       }
 //     });
 // });
 
@@ -48,6 +31,9 @@ export const reducer = createSlice({
   reducers: {
     changeTypeQuests: (state, action) => {
       state.filter = action.payload;
+    },
+    loadQuests: (state, action) => {
+      state.quests = action.payload;
     },
     changeFilteredQuests: (state) => {
       if (state.filter === 'All quests') {
@@ -77,4 +63,4 @@ export const reducer = createSlice({
 //     });
 // });
 
-export const {changeTypeQuests, changeFilteredQuests} = reducer.actions;
+export const {changeTypeQuests, loadQuests, changeFilteredQuests} = reducer.actions;

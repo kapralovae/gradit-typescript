@@ -6,26 +6,29 @@ import { ReactComponent as IconPuzzle} from '../../assets/img/icon-puzzle.svg';
 import * as S from './detailed-quest.styled';
 import { BookingModal } from './components/components';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useAppSelector } from '../../hooks';
+import { useAppDisptach, useAppSelector } from '../../hooks';
 import { getRegularForCheckId } from '../../const';
-import { getQuestsFromServer } from '../../store/quests-process/selectors';
+import { getq } from '../../store/quests-data/selectors';
+import { changeFilteredQuests } from '../../store/quests-data/reducer-data';
 
 function DetailedQuest() {
-  const quest = useAppSelector(getQuestsFromServer);
+  const dispatch = useAppDisptach();
+  const quests = useAppSelector(getq);
+  dispatch(changeFilteredQuests());
+  console.log(quests);
+
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
   const {id} = useParams();
   const navigate = useNavigate();
-  console.log(quest);
 
-  if (quest.length > 0) {
-    const checkId = new RegExp(getRegularForCheckId(Number(id), quest.length)).test(String(id));
-    if (!checkId || Number(id) > quest.length) {
+  if (quests.length > 0) {
+    const checkId = new RegExp(getRegularForCheckId(Number(id), quests.length)).test(String(id));
+    if (!checkId || Number(id) > quests.length) {
       navigate('*');
     }
   }
 
-  const filteredQuest = quest.filter((quest) => quest.id === Number(id))[0];
-  console.log(quest);
+  const filteredQuest = quests.filter((quest) => quest.id === Number(id))[0];
   const { coverImg, description, duration, peopleCount, title, type} = filteredQuest;
 
   const transformTypeQuest = (typeQuest: string) => {

@@ -6,7 +6,7 @@ import {ReactComponent as IconDetective} from '../../../../assets/img/icon-detec
 import {ReactComponent as IconScifi} from '../../../../assets/img/icon-scifi.svg';
 import * as S from './quests-catalog.styled';
 import { QuestCard } from './quest-card';
-import { changeFilteredQuests, changeTypeQuests } from '../../../../store/quests-data/reducer-data';
+import { changeTypeQuests } from '../../../../store/quests-data/reducer-data';
 import { QuestsType } from '../../../../types/state';
 import { getQuestsFromServer } from '../../../../store/quests-process/selectors';
 import { getChoiseFilter } from '../../../../store/quests-data/selectors';
@@ -25,8 +25,6 @@ function QuestsCatalog() {
   } else {
     filteredQuests = quests.filter((quest) => quest.type === filter);
   }
-
-  console.log(quests, filter);
 
   const transformTypeQuest = (typeQuest: string) => {
     let type = 'All quests';
@@ -56,7 +54,6 @@ function QuestsCatalog() {
   const handleTabBtnClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
     dispatch(changeTypeQuests(transformTypeQuest(evt.currentTarget.innerText)));
-    dispatch(changeFilteredQuests());
   };
 
   return(
