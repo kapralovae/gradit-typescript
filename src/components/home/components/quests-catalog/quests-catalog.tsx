@@ -5,22 +5,28 @@ import {ReactComponent as IconMystic} from '../../../../assets/img/icon-mystic.s
 import {ReactComponent as IconDetective} from '../../../../assets/img/icon-detective.svg';
 import {ReactComponent as IconScifi} from '../../../../assets/img/icon-scifi.svg';
 import * as S from './quests-catalog.styled';
-import { useState } from 'react';
-import React from 'react';
-import { useAppDisptach, useAppSelector } from '../../../../hooks';
 import { QuestCard } from './quest-card';
-import { changeFilteredQuests, changeTypeQuests } from '../../../../action';
+import { changeFilteredQuests, changeTypeQuests } from '../../../../store/quests-data/reducer-data';
+import { QuestsType } from '../../../../types/state';
+import { getQuestsFromServer } from '../../../../store/quests-process/selectors';
+import { getChoiseFilter } from '../../../../store/quests-data/selectors';
+import { useAppDisptach, useAppSelector } from '../../../../hooks';
 
 const QuestsCatalog = () => {
 
   const dispatch = useAppDisptach();
-  // const quests = useAppSelector((state) => state.quests);
-  const filter = useAppSelector((state) => state.filter);
-  const filteredQuests = useAppSelector((state) => state.filteredQuests);
+  const quests = useAppSelector(getQuestsFromServer);
+  const filter = useAppSelector(getChoiseFilter);
 
-  console.log(filter);
+  let filteredQuests = [];
 
-  // const [thematic, setThematic] = useState('Все квесты');
+  if (filter === 'All quests') {
+    filteredQuests = quests;
+  } else {
+    filteredQuests = quests.filter((quest) => quest.type === filter);
+  }
+
+  console.log(quests, filter);
 
   const transformTypeQuest = (typeQuest: string) => {
     let type = 'All quests';
@@ -100,7 +106,7 @@ const QuestsCatalog = () => {
     </S.Tabs>
 
     <S.QuestsList>
-      {filteredQuests.map((quest) => <QuestCard item={quest} key={quest.id}></QuestCard>)}
+      {filteredQuests.map((quest: QuestsType) => <QuestCard item={quest} key={quest.id}></QuestCard>)}
     </S.QuestsList>
   </>
 );};

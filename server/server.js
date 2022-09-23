@@ -10,6 +10,10 @@ const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
 
+server.get('/quest', (req, res) => {
+  res.jsonp(req.query)
+})
+
 server.use(jsonServer.bodyParser);
 
 initCustomRoutes(server);

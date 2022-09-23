@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { Container, Link as RouterLink } from '../common';
 // import {RouterLink} from 'react-router-dom';
@@ -32,7 +33,7 @@ const Logo = styled.a`
   }
 `;
 
-const LogoLink = styled(RouterLink)`
+const LogoLink = styled(NavLink)`
   margin-right: 250px;
 
   @media (max-width: 1300px) {
