@@ -18,18 +18,8 @@ type ItemCardType = {
   item: QuestCardType
 };
 
-// coverImg: "img/cover-sklep.jpg",
-// description: "Средневековое кладбище таит в себе много страшных тайн. Местные жители говорят, что в склепе похоронен граф вампир, который по ночам выходит на охоту, чтобы испить человеческой крови. Через час солнце опустится за горизонт, успеете ли вы убить вампира и выбраться из склепа?",
-// duration: 120,
-// id: 1,
-// level: "hard",
-// peopleCount: [2, 5],
-// previewImg: "img/preview-sklep.jpg",
-// title: "Склеп",
-// type: "horror",
-
 export const QuestCard = ({item}: ItemCardType) => {
-const {coverImg, id, level, peopleCount, title} = item;
+const {previewImg, id, level, peopleCount, title} = item;
 
   const transformLevel = (level: string) => {
     switch(level) {
@@ -48,7 +38,7 @@ const {coverImg, id, level, peopleCount, title} = item;
     <S.QuestItemLink to={`/quest/${id}`}>
       <S.Quest>
         <S.QuestImage
-          src={coverImg}
+          src={previewImg}
           width="344"
           height="232"
           alt={`квест ${title}`}

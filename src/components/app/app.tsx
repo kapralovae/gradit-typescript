@@ -6,8 +6,9 @@ import { appTheme } from './common';
 import * as S from './app.styled';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import { useEffect } from 'react';
-import { getQuests } from '../../action';
+import { loadAllQuests } from '../../action';
 import { useAppDisptach } from '../../hooks';
+import NotFound from '../not-found/not-found';
 
 const App = () => {
 
@@ -18,7 +19,7 @@ const App = () => {
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
-    dispatch(getQuests(data));});
+    dispatch(loadAllQuests(data));});
 }, []);
 
   return(
@@ -26,7 +27,7 @@ const App = () => {
     <S.GlobalStyle />
     <BrowserRouter>
       <Routes>
-        <Route path="/quest"
+        <Route path="/quest/:id"
         element={<DetailedQuest />}>
 
         </Route>
@@ -37,6 +38,12 @@ const App = () => {
         <Route path="/"
           element={<Home />}>
          </Route>
+
+         <Route path='*' element={
+          <NotFound />
+        }
+        >
+        </Route>
       </Routes>
     </BrowserRouter>
   </ThemeProvider>
