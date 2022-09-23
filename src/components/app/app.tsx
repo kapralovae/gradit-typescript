@@ -5,22 +5,22 @@ import Home from '../home/home';
 import { appTheme } from './common';
 import * as S from './app.styled';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
-import { useEffect } from 'react';
-import { loadAllQuests } from '../../action';
-import { useAppDisptach } from '../../hooks';
+// import { useEffect } from 'react';
+// import { loadAllQuests } from '../../action';
+// import { useAppDisptach } from '../../hooks';
 import NotFound from '../not-found/not-found';
 
 const App = () => {
 
-  const dispatch = useAppDisptach();
+  // const dispatch = useAppDisptach();
 
-  useEffect(() => {
-    fetch('http://localhost:3001/quests/')
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    dispatch(loadAllQuests(data));});
-}, []);
+//   useEffect(() => {
+//     fetch('http://localhost:3001/quests/')
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log(data);
+//     dispatch(loadAllQuests(data));});
+// }, []);
 
   return(
   <ThemeProvider theme={appTheme}>

@@ -5,16 +5,30 @@ import { ReactComponent as IconPerson} from '../../assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle} from '../../assets/img/icon-puzzle.svg';
 import * as S from './detailed-quest.styled';
 import { BookingModal } from './components/components';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAppSelector } from '../../hooks';
+import { getRegularForCheckId } from '../../const';
+import { getQuestsFromServer } from '../../store/quests-process/selectors';
 
 const DetailedQuest = () => {
+  const quest = useAppSelector(getQuestsFromServer);
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
   const {id} = useParams();
-  const quest = useAppSelector((state) => state.quests).filter((quest) => quest.id === Number(id));
+  // const navigate = useNavigate();
   console.log(quest);
-  const { coverImg, description, duration, peopleCount, previewImg, title, type} = quest[0];
-  console.log(coverImg, previewImg);
+
+  // if (quest.length > 0) {
+  //   const checkId = new RegExp(getRegularForCheckId(Number(id), quest.length)).test(String(id));
+  //   if (!checkId || Number(id) > quest.length) {
+  //     navigate('*');
+  //   }
+  // }
+
+  // console.log('123');
+
+  const filteredQuest = quest.filter((quest) => quest.id === Number(id))[0];
+  console.log(quest);
+  const { coverImg, description, duration, peopleCount, title, type} = filteredQuest;
 
   const transformTypeQuest = (typeQuest: string) => {
 
@@ -34,10 +48,10 @@ const DetailedQuest = () => {
         type = ' мистика';
         break;
       case 'detective':
-        type = ' lетектив';
+        type = ' детектив';
         break;
       case 'sci-fi':
-        type = 'Sci-fi';
+        type = 'sci-fi';
         break;
     };
 
@@ -52,7 +66,7 @@ const DetailedQuest = () => {
     <MainLayout>
       <S.Main>
         <S.PageImage
-          src={`${coverImg}`}
+          src={`/${coverImg}`}
           alt={`Квест ${title}`}
           width="1366"
           height="768"
