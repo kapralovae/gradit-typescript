@@ -2,7 +2,7 @@ import './not-found.css'
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NotFound = () => {
+function NotFound(){
 
   return(
     <React.Fragment>

@@ -4,12 +4,14 @@ type MainLayoutType = {
   children: React.ReactNode;
 }
 
-const MainLayout = ({ children }: MainLayoutType) => (
+function MainLayout({ children }: MainLayoutType) {
+  return(
   <>
     <Header />
     {children}
     <Footer />
   </>
-);
+  );
+}
 
 export default MainLayout;

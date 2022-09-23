@@ -4,8 +4,8 @@ type PageSubtextType = {
   children: React.ReactNode;
 }
 
-const PageSubtext = ({ children, ...props }: PageSubtextType) => (
-  <S.PageSubtext {...props}>{children}</S.PageSubtext>
-);
+function PageSubtext({ children, ...props }: PageSubtextType) {
+  return <S.PageSubtext {...props}>{children}</S.PageSubtext>;
+};
 
 export default PageSubtext;

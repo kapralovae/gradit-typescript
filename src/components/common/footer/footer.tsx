@@ -1,6 +1,7 @@
 import * as S from './footer.styled';
 
-const Footer = () => (
+function Footer () {
+  return(
   <S.StyledFooter>
     <S.Socials>
       <S.SocialItem>
@@ -17,6 +18,7 @@ const Footer = () => (
       </S.SocialItem>
     </S.Socials>
   </S.StyledFooter>
-);
+  );
+};
 
 export default Footer;

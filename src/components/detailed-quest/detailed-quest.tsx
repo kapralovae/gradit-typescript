@@ -10,7 +10,7 @@ import { useAppSelector } from '../../hooks';
 import { getRegularForCheckId } from '../../const';
 import { getQuestsFromServer } from '../../store/quests-process/selectors';
 
-const DetailedQuest = () => {
+function DetailedQuest() {
   const quest = useAppSelector(getQuestsFromServer);
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
   const {id} = useParams();

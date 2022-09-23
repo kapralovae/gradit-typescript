@@ -4,8 +4,8 @@ type PageTitleType = {
   children: React.ReactNode;
 }
 
-const PageTitle = ({ children, ...props }: PageTitleType) => (
-  <S.PageTitle {...props}>{children}</S.PageTitle>
-);
+function PageTitle({ children, ...props }: PageTitleType) {
+  return <S.PageTitle {...props}>{children}</S.PageTitle>;
+};
 
 export default PageTitle;

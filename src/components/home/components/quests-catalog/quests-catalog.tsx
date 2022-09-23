@@ -12,7 +12,7 @@ import { getQuestsFromServer } from '../../../../store/quests-process/selectors'
 import { getChoiseFilter } from '../../../../store/quests-data/selectors';
 import { useAppDisptach, useAppSelector } from '../../../../hooks';
 
-const QuestsCatalog = () => {
+function QuestsCatalog() {
 
   const dispatch = useAppDisptach();
   const quests = useAppSelector(getQuestsFromServer);
