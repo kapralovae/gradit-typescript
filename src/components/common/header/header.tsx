@@ -25,15 +25,15 @@ function Header () {
           </S.LinkItem>
 
           <S.LinkItem onClick={handleLinkClick}>
-            <S.Link isActiveLink={activeLink === 'Новичкам'} to="#">Новичкам</S.Link>
+            <S.Link isActiveLink={activeLink === 'Новичкам'} to="/plug">Новичкам</S.Link>
           </S.LinkItem>
 
           <S.LinkItem onClick={handleLinkClick}>
-            <S.Link isActiveLink={activeLink === 'Отзывы'} to="#">Отзывы</S.Link>
+            <S.Link isActiveLink={activeLink === 'Отзывы'} to="/plug">Отзывы</S.Link>
           </S.LinkItem>
 
           <S.LinkItem onClick={handleLinkClick}>
-            <S.Link isActiveLink={activeLink === 'Акции'} to="#">Акции</S.Link>
+            <S.Link isActiveLink={activeLink === 'Акции'} to="/plug">Акции</S.Link>
           </S.LinkItem>
 
           <S.LinkItem onClick={handleLinkClick}>
