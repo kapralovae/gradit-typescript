@@ -19,7 +19,7 @@ function App () {
     <S.GlobalStyle />
     <BrowserRouter>
       <Routes>
-        <Route path="/quest/:id"
+        <Route path="/detailed-quest/:id"
         element={isDataLoaded ? <SpinerLoading /> : <DetailedQuest />}>
 
         </Route>

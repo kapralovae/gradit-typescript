@@ -21,10 +21,8 @@ export const serverReducer = createSlice({
       .addCase(requestQuests.fulfilled, (state, action) => {
         state.quests = action.payload;
         state.isDataLoaded = false;
-        console.log(action.payload);
      })
       .addCase(requestQuests.pending, (state) => {
-        console.log('123');
         state.isDataLoaded = true;
       });
   },
