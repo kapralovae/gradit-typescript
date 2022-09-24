@@ -4,8 +4,8 @@ type PageHeadingType = {
   children: React.ReactNode;
 }
 
-const PageHeading = ({ children, ...props }: PageHeadingType) => (
-  <S.PageHeading {...props}>{children}</S.PageHeading>
-);
+function PageHeading({ children, ...props }: PageHeadingType) {
+  return <S.PageHeading {...props}>{children}</S.PageHeading>;
+};
 
 export default PageHeading;

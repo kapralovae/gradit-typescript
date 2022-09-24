@@ -4,10 +4,12 @@ import { QuestsType } from "../../types/state";
 
 type TypeInitialState2 = {
   quests: QuestsType[],
+  isDataLoaded: boolean;
 };
 
 const initialState :TypeInitialState2 = {
   quests: [],
+  isDataLoaded: false,
 };
 
 export const serverReducer = createSlice({
@@ -18,18 +20,13 @@ export const serverReducer = createSlice({
     builder
       .addCase(requestQuests.fulfilled, (state, action) => {
         state.quests = action.payload;
-      })
+        state.isDataLoaded = false;
+        console.log(action.payload);
+     })
+      .addCase(requestQuests.pending, (state) => {
+        console.log('123');
+        state.isDataLoaded = true;
+      });
   },
 
 });
-
-
-
-
-
-// reducers: {
-//   requestQuests: (state, action) => {
-//     state.quests = action.payload;
-//     console.log(state.quests);
-//   },
-// },

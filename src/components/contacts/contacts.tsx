@@ -2,7 +2,8 @@ import { MainLayout, PageTitle, PageSubtext } from '../../components/common/comm
 import contactsMap from '../../assets/img/contacts-map.jpg';
 import * as S from './contacts.styled';
 
-const Contacts = () => (
+function Contacts() {
+  return(
   <MainLayout>
     <S.Main>
       <S.ContentWrapper>
@@ -52,6 +53,7 @@ const Contacts = () => (
       </S.ContentWrapper>
     </S.Main>
   </MainLayout>
-);
+  );
+};
 
 export default Contacts;

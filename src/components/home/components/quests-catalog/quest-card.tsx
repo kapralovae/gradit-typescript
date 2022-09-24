@@ -18,7 +18,7 @@ type ItemCardType = {
   item: QuestCardType
 };
 
-export const QuestCard = ({item}: ItemCardType) => {
+export function QuestCard({item}: ItemCardType) {
 const {previewImg, id, level, peopleCount, title} = item;
 
   const transformLevel = (level: string) => {

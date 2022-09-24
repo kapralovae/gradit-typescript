@@ -1,26 +1,18 @@
 import { ThemeProvider } from 'styled-components';
-import DetailedQuest from '../detailed-quest/detailed-quest';
 import Contacts from '../contacts/contacts';
 import Home from '../home/home';
 import { appTheme } from './common';
 import * as S from './app.styled';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
-// import { useEffect } from 'react';
-// import { loadAllQuests } from '../../action';
-// import { useAppDisptach } from '../../hooks';
 import NotFound from '../not-found/not-found';
+import DetailedQuest from '../detailed-quest/detailed-quest';
+import { useAppSelector } from '../../hooks';
+import { getIsDataLoader } from '../../store/quests-process/selectors';
+import { SpinerLoading } from '../common/spiner-loading/spiner-laoding';
 
 function App () {
 
-  // const dispatch = useAppDisptach();
-
-//   useEffect(() => {
-//     fetch('http://localhost:3001/quests/')
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log(data);
-//     dispatch(loadAllQuests(data));});
-// }, []);
+  const isDataLoaded = useAppSelector(getIsDataLoader);
 
   return(
   <ThemeProvider theme={appTheme}>
@@ -28,7 +20,7 @@ function App () {
     <BrowserRouter>
       <Routes>
         <Route path="/quest/:id"
-        element={<DetailedQuest />}>
+        element={isDataLoaded ? <SpinerLoading /> : <DetailedQuest />}>
 
         </Route>
         <Route path="/contacts"
@@ -36,7 +28,7 @@ function App () {
 
         </Route>
         <Route path="/"
-          element={<Home />}>
+          element={isDataLoaded ? <SpinerLoading /> : <Home />}>
          </Route>
 
          <Route path='*' element={

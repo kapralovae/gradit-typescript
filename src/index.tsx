@@ -3,7 +3,6 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { requestQuests } from './action';
-import { changeFilteredQuests } from './store/quests-data/reducer-data';
 import { store } from './store';
 
 const root = ReactDOM.createRoot(
@@ -12,7 +11,6 @@ const root = ReactDOM.createRoot(
 
 
 store.dispatch(requestQuests());
-store.dispatch(changeFilteredQuests());
 
 root.render(
   <StrictMode>

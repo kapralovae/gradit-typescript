@@ -4,8 +4,8 @@ type ContainerType = {
   children: React.ReactNode;
 }
 
-const Container = ({ children, ...props }: ContainerType) => (
-  <S.Container {...props}>{children}</S.Container>
-);
+function Container ({ children, ...props }: ContainerType) {
+  return <S.Container {...props}>{children}</S.Container>;
+};
 
 export default Container;

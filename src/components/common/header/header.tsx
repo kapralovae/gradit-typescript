@@ -2,7 +2,7 @@ import { useState } from 'react';
 import logo from '../../../assets/img/logo.svg';
 import * as S from './header.styled';
 
-const Header = () => {
+function Header () {
 
   const [activeLink, setActiveLink] = useState('Квесты');
 
