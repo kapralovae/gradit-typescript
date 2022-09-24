@@ -27,6 +27,12 @@ function App () {
         element={<Contacts />}>
 
         </Route>
+
+        <Route path="/plug"
+        element={<NotFound />}>
+
+        </Route>
+
         <Route path="/"
           element={isDataLoaded ? <SpinerLoading /> : <Home />}>
          </Route>
