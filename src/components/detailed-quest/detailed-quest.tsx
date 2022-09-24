@@ -7,15 +7,14 @@ import * as S from './detailed-quest.styled';
 import { BookingModal } from './components/components';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAppDisptach, useAppSelector } from '../../hooks';
-import { getRegularForCheckId } from '../../const';
 import { getq } from '../../store/quests-data/selectors';
 import { changeFilteredQuests } from '../../store/quests-data/reducer-data';
+import { getRegularForCheckId } from '../../const';
 
 function DetailedQuest() {
   const dispatch = useAppDisptach();
   const quests = useAppSelector(getq);
   dispatch(changeFilteredQuests());
-  console.log(quests);
 
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
   const {id} = useParams();

@@ -35,7 +35,7 @@ const {previewImg, id, level, peopleCount, title} = item;
 
   return (
     <S.QuestItem>
-    <S.QuestItemLink to={`/quest/${id}`}>
+    <S.QuestItemLink to={`/detailed-quest/${id}`}>
       <S.Quest>
         <S.QuestImage
           src={previewImg}

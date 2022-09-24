@@ -13,20 +13,8 @@ const initialState: TypeInitialState = {
   filteredQuests: [],
 };
 
-// const reducer = createReducer(initialState, (builder) => {
-//   builder
-//     .addCase(loadAllQuests, (state, action) => {
-//       state.quests = action.payload;
-//       state.filteredQuests = state.quests;
-//     })
-//     .addCase(changeTypeQuests, (state, action) => {
-//       state.filter = action.payload;
-//     })
-//     });
-// });
-
 export const reducer = createSlice({
-  name: 'just',
+  name: 'questReducer',
   initialState,
   reducers: {
     changeTypeQuests: (state, action) => {
@@ -44,23 +32,5 @@ export const reducer = createSlice({
     },
   }
 });
-
-// const reducer = createReducer(initialState, (builder) => {
-//   builder
-//     .addCase(chengeGenreAction, (state, action) => {
-//       state.genre = action.payload;
-//     })
-//     .addCase(getFilmsWithGenreAction, (state) => {
-//       if (state.genre === 'All genres') {
-//         state.films = films;
-//       } else {
-//         state.films = films.filter((film) => film.genre === state.genre);
-//       }
-//     })
-//     .addCase(resetFilterGenreAction, (state) => {
-//       state.genre = 'All genres';
-//       state.films = films;
-//     });
-// });
 
 export const {changeTypeQuests, loadQuests, changeFilteredQuests} = reducer.actions;
