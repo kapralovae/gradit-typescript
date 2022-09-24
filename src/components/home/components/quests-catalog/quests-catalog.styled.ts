@@ -36,13 +36,19 @@ const TabItem = styled.li`
   }
 `;
 
-const TabBtn = styled.button.attrs({type: 'button'})`
+interface ButtonProps {
+  isActive: boolean
+}
+
+const TabBtn = styled.button.attrs({type: 'button'})<ButtonProps>`
+
+
   display: flex;
   align-items: center;
   padding: 0;
 
   font-family: inherit;
-  font-size: ${({ theme }) => theme.font.semibase};
+  // font-size: ${({ theme }) => theme.font.semibase};
   line-height: 140%;
   letter-spacing: -0.02em;
   font-weight: 700;
@@ -58,16 +64,21 @@ const TabBtn = styled.button.attrs({type: 'button'})`
 
   &:focus span,
   &:hover span {
-    border-bottom: 2px solid ${({ theme }) => theme.color.tangerine};
+    border-bottom: 2px solid ${({ theme }) => theme.color.whisper2};
   }
+ ${(props) => props.isActive && css`
+     span {
+       border-bottom: 2px solid ${({ theme }) => theme.color.tangerine};
+     }`}
 
-  ${({isActive}) =>
-  isActive && css`
-      span {
-        border-bottom: 2px solid ${({ theme }) => theme.color.tangerine};
-      }
-    `}
 `;
+
+// ${({ $isActiveLink }) =>
+//  $isActive && css`
+//      span {
+//        border-bottom: 2px solid ${({ theme }) => theme.color.tangerine};
+//      }
+//    `}
 
 const TabTitle = styled.span`
   margin-left: 13px;

@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { Container, Link as RouterLink } from '../common';
-// import {RouterLink} from 'react-router-dom';
 
 const StyledHeader = styled.header`
   z-index: 5;
@@ -77,9 +76,9 @@ const Link = styled(RouterLink)`
 
   color: ${({ theme }) => theme.color.whiteSmoke};
 
-  ${({ active }) =>
+  ${({ isActiveLink }) =>
 
-  active && css`
+  isActiveLink && css`
       color: ${({ theme }) => theme.color.tangerine};
     `}
 

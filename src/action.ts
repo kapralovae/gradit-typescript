@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { changeTypeQuests, loadQuests } from "./store/quests-data/reducer-data";
+import { loadQuests } from "./store/quests-data/reducer-data";
 import { AppDispatch, QuestsType, State } from "./types/state";
 
 export const Action = {
@@ -8,14 +8,6 @@ export const Action = {
   CHANGE_FILTERED_QUESTS: 'GET_FILTERED_QUESTS',
   request: 'request',
 };
-
-// export const loadAllQuests = createAction(Action.GET_QUESTS, (value)=> ({
-//   payload:value,
-// }));
-
-// export const changeTypeQuests = createAction(Action.CHANGE_TYPE_QUESTS, (value)=> ({
-//   payload:value,
-// }));
 
 
 export const requestQuests = createAsyncThunk<QuestsType[], undefined, {

@@ -66,7 +66,7 @@ function QuestsCatalog() {
         </S.TabBtn>
       </S.TabItem>
 
-      <S.TabItem>
+       <S.TabItem>
         <S.TabBtn onClick={handleTabBtnClick} isActive={filter === 'adventures'}>
           <IconAdventures />
           <S.TabTitle>Приключения</S.TabTitle>
